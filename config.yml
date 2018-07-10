@@ -8,11 +8,15 @@ server:
       port: 8080
     - type: https
       port: 8443
+      keyStorePath: example.keystore
+      keyStorePassword: example
   adminConnectors:
     - type: http
       port: 8085
     - type: https
       port: 8444
+      keyStorePath: example.keystore
+      keyStorePassword: example
 
 # Database settings
 database:
@@ -29,7 +33,4 @@ database:
 logging:
   level: INFO
   loggers:
-    com.example.helloworld: DEBUG
-    # Redirects SQL logs to a separete file
-	com.hibernate.SQL:
-	  level: DEBUG
+    com.example.helloworld: DEBUG   
