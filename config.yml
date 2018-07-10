@@ -1,0 +1,35 @@
+template: Hello, %s!
+defaultName: Stranger
+
+#Server configuration
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+    - type: https
+      port: 8443
+  adminConnectors:
+    - type: http
+      port: 8085
+    - type: https
+      port: 8444
+
+# Database settings
+database:
+    # the name of the JDBC driver
+    driverClass: org.h2.Driver
+    # the username
+    user: sa
+    # the password
+    password: 
+    # the JDBC URL; the database is called example
+    url: jdbc:h2:./target/example
+      
+# Logging settings      
+logging:
+  level: INFO
+  loggers:
+    com.example.helloworld: DEBUG
+    # Redirects SQL logs to a separete file
+	com.hibernate.SQL:
+	  level: DEBUG
