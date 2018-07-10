@@ -1,6 +1,8 @@
 package com.example.helloworld;
 
 import io.dropwizard.Application;
+import io.dropwizard.db.PooledDataSourceFactory;
+import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
@@ -17,7 +19,12 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
 
     @Override
     public void initialize(final Bootstrap<HelloWorldConfiguration> bootstrap) {
-        // TODO: application initialization
+        bootstrap.addBundle(new MigrationsBundle<HelloWorldConfiguration>() {
+        	@Override
+        	public PooledDataSourceFactory getDataSourceFactory(HelloWorldConfiguration configuration) {        		
+        		return configuration.getDataSourceFactory();
+        	}        	
+		});
     }
 
     @Override
