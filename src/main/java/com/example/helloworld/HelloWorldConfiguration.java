@@ -1,5 +1,8 @@
 package com.example.helloworld;
 
+import java.util.Collections;
+import java.util.Map;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -20,6 +23,9 @@ public class HelloWorldConfiguration extends Configuration {
 	@Valid
 	@NotNull
 	private DataSourceFactory database = new DataSourceFactory();
+	
+	@NotNull
+	private Map<String, Map<String, String>> viewRendererConfiguration = Collections.emptyMap();
 	
 	@JsonProperty
 	public String getTemplate() {
@@ -50,4 +56,16 @@ public class HelloWorldConfiguration extends Configuration {
 	public void setDataSourceFactory(DataSourceFactory database) {
 		this.database = database;
 	}
+
+	@JsonProperty("viewRendererConfiguration")
+	public Map<String, Map<String, String>> getViewRendererConfiguration() {
+		return viewRendererConfiguration;
+	}
+
+	@JsonProperty("viewRendererConfiguration")
+	public void setViewRendererConfiguration(Map<String, Map<String, String>> viewRendererConfiguration) {
+		this.viewRendererConfiguration = viewRendererConfiguration;
+	}
+	
+	
 }
