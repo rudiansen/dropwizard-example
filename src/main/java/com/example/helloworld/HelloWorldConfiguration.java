@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.example.helloworld.core.Template;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.dropwizard.Configuration;
@@ -45,6 +46,10 @@ public class HelloWorldConfiguration extends Configuration {
 	@JsonProperty
 	public void setDefaultName(String defaultName) {
 		this.defaultName = defaultName;
+	}
+	
+	public Template buildTemplate() {
+		return new Template(template, defaultName);
 	}
 	
 	@JsonProperty("database")

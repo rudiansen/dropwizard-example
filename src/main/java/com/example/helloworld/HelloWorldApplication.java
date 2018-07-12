@@ -3,7 +3,9 @@ package com.example.helloworld;
 import java.util.Map;
 
 import com.example.helloworld.core.Person;
+import com.example.helloworld.core.Template;
 import com.example.helloworld.db.PersonDAO;
+import com.example.helloworld.health.TemplateHealthCheck;
 import com.example.helloworld.resources.PeopleResource;
 import com.example.helloworld.resources.PersonResource;
 
@@ -57,7 +59,9 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
                     final Environment environment) {
        
     	final PersonDAO dao = new PersonDAO(hibernateBundle.getSessionFactory());
+    	final Template template = configuration.buildTemplate();
     	
+    	environment.healthChecks().register("template", new TemplateHealthCheck(template));    	
     	environment.jersey().register(new PeopleResource(dao));
     	environment.jersey().register(new PersonResource(dao));
     	
