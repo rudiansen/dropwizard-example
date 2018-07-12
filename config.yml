@@ -27,7 +27,7 @@ database:
     # the password
     password: 
     # the JDBC URL; the database is called example
-    url: jdbc:h2:./target/example
+    url: jdbc:h2:./db/example
 
 # the key needs to match the configuration key of the renderer (ViewRenderer::getConfigurationKey)
 viewRendererConfiguration:
