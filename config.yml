@@ -3,31 +3,31 @@ defaultName: Stranger
 
 # use the simple server factory if you only want to run on a single port
 # HEROKU NOTE - the port gets be overridden with the Heroku $PORT in the Procfile
-server:
-  type: simple
-  applicationContextPath: /
-  #adminContextPath: /admin # If you plan to use an admin path, you'll need to also use non-root app path
-  connector:
-    type: http
-    port: 8080
+#server:
+#  type: simple
+#  applicationContextPath: /
+#  #adminContextPath: /admin # If you plan to use an admin path, you'll need to also use non-root app path
+#  connector:
+#    type: http
+#    port: 8080
     
 # HEROKU NOTE - Heroku only opens a single port so can't use the usual Dropwizard app-and-admin configuration
 #Server configuration
-#server:
-#  applicationConnectors:
-#    - type: http
-#      port: 8080
-#    - type: https
-#      port: 8043
-#      keyStorePath: example.keystore
-#      keyStorePassword: example
-#  adminConnectors:
-#    - type: http
-#      port: 8081
-#    - type: https
-#      port: 8044
-#      keyStorePath: example.keystore
-#      keyStorePassword: example
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+    - type: https
+      port: 8043
+      keyStorePath: example.keystore
+      keyStorePassword: example
+  adminConnectors:
+    - type: http
+      port: 8085
+    - type: https
+      port: 8044
+      keyStorePath: example.keystore
+      keyStorePassword: example
 
 # Database settings
 database:
