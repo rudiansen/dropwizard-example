@@ -4,9 +4,17 @@ defaultName: Stranger
 #Server configuration
 server:
   applicationConnectors:
+    - type: http
+      port: 8080
+    - type: https
+      port: 8043
       keyStorePath: example.keystore
       keyStorePassword: example
   adminConnectors:
+    - type: http
+      port: 8081
+    - type: https
+      port: 8044
       keyStorePath: example.keystore
       keyStorePassword: example
 
